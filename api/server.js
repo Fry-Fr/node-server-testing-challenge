@@ -1,8 +1,11 @@
 const express = require('express');
+const usersRouter = require('./users/user-router');
 
 const server = express();
 
 server.use(express.json());
+
+server.use('/api/users', usersRouter);
 
 server.get('/', (req, res, next) => {
     res.json({ api: "up" })
